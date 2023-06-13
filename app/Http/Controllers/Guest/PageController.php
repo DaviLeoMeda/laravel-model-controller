@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Guest;
 
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Movie;
 
 class PageController extends Controller
 {
-    public function getMovie(){
-        return view('pages.movies');
+    public function index(){
+
+        $MoviesCatalogue = Movie::All();
+
+        return view('pages.welcome', compact('MoviesCatalogue'));
     }
 }
